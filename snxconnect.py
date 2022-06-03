@@ -107,7 +107,7 @@ class HTML_Requester (object) :
         """
         sp  = self.args.snxpath
         if self.args.debug :
-            snx = Popen ([sp, '-g', '-Z'], stdin = PIPE, stdout = PIPE, stderr = PIPE)
+            snx = Popen (['strace', '-o', 'strace_snx' ,sp, '-Z'], stdin = PIPE, stdout = PIPE, stderr = PIPE)
         else: 
             snx = Popen ([sp, '-Z'], stdin = PIPE, stdout = PIPE, stderr = PIPE)
         stdout, stderr = snx.communicate ('')
